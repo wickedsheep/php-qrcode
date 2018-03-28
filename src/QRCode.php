@@ -61,6 +61,7 @@ class QRCode{
 	const DATA_ALPHANUM = 0b0010;
 	const DATA_BYTE     = 0b0100;
 	const DATA_KANJI    = 0b1000;
+	const DATA_ECI      = 0b0111;
 
 	const ECC_MODES = [
 		self::ECC_L => 0,

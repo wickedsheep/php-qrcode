@@ -13,7 +13,7 @@
 namespace chillerlan\QRCode\Data;
 
 use chillerlan\QRCode\{
-	QRCode, QRCodeException, QROptions
+	QRCode, QRCodeException, QREncoding, QROptions
 };
 use chillerlan\QRCode\Helpers\{
 	BitBuffer, Polynomial
@@ -222,11 +222,16 @@ abstract class QRDataAbstract implements QRDataInterface{
 		// @todo: fixme, get real length
 		$MAX_BITS = $this::MAX_BITS[$this->version][QRCode::ECC_MODES[$this->options->eccLevel]];
 
-		$this->bitBuffer
-			->clear()
-			->put($this->datamode, 4)
-			->put($this->strlen, $this->getLengthBits())
-		;
+		$this->bitBuffer->clear();
+
+		// ECI ?
+		if ($this->options->eci) {
+			$this->bitBuffer->put(QRCode::DATA_ECI, 4);
+			$this->bitBuffer->put($this->options->eciEncoding, 8);
+		}
+
+		$this->bitBuffer->put($this->datamode, 4);
+		$this->bitBuffer->put($this->strlen, $this->getLengthBits());
 
 		$this->write($data);
 

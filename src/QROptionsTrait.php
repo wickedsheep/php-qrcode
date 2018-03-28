@@ -78,6 +78,18 @@ trait QROptionsTrait{
 	protected $quietzoneSize = 4;
 
 	/**
+	 * Use ECI (Extended Channel Interpretation), defaults to false.
+	 * @var bool
+	 */
+	protected $eci = false;
+
+	/**
+	 * Set the ECI encoding, defaults to 0.
+	 * @var int
+	 */
+	protected $eciEncoding = QREncoding::DEFAULT;
+
+	/**
 	 * QRCode::OUTPUT_MARKUP_XXXX where XXXX = HTML, SVG
 	 * QRCode::OUTPUT_IMAGE_XXX where XXX = PNG, GIF, JPG
 	 * QRCode::OUTPUT_STRING_XXXX where XXXX = TEXT, JSON

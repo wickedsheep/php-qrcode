@@ -23,6 +23,9 @@ use chillerlan\Traits\ContainerAbstract;
  * @property bool   $addQuietzone
  * @property bool   $quietzoneSize
  *
+ * @property bool	eci
+ * @property int	eciEncoding
+ *
  * @property string $outputType
  * @property string $outputInterface
  * @property string $cachefile
