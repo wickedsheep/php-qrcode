@@ -41,5 +41,5 @@ class QREncoding {
 	const ISO_IEC_646_1991      = 27;
 	const BIG_5                 = 28; // Big 5 (Taiwan) Chinese Character Set
 	const GB_PRC                = 29; // GB (PRC) Chinese Character Set
-	const KOREAN				        = 30; // Korean Character Set
+	const KOREAN                = 30; // Korean Character Set
 }
